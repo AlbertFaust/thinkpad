@@ -11,12 +11,12 @@ do
     }
     old_mac=$(ip link show wlp4s0 | awk '/ether/ {print $2}')
     prefix=${old_mac:0:8}
-    MAC=$(generate_mac)
+    mac=$(generate_mac)
     ip link set dev wlp4s0 down
-    ip link set dev wlp4s0 address $MAC
+    ip link set dev wlp4s0 address $mac
     ip link set dev wlp4s0 up
     echo 'Old MAC address: ' ${old_mac}
-    echo 'New MAC address: ' ${MAC}
+    echo 'New MAC address: ' ${mac}
     sleep 3540                                                                                                                                                  
     wait
 done
